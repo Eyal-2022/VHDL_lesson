@@ -47,4 +47,29 @@ begin
 	   end if;
 	end process;
 end Behave;
-		   
+-- תרגיל 3
+-- כתבו תוכנית לדלגלג הכולל שעון ואיתחול סינכרוני
+--  נסביר את ההבדל בין איתחול אסיכרוני לסינכרוני. כאשר האתחול אסיכרוני הוא תלוי רק בלחיצת כפתור של המשתמש ולכן הוא נכנס לרשימת רגישויות
+--  לעומת אתחול סינכרוני שהוא מבצע איפוס גם כאשר המשתמש לוחץ על הכפתור אך רק לאחר עליית שעון ולכן הוא לא ברשימת הרגישויות
+library ieee;
+use ieee.std_logic_1164.all;
+entity tar3 is
+    port (
+        D   : in  std_logic; 
+        clk : in  std_logic; 
+		  reset : in std_logic;
+        Q   : out std_logic);
+end tar3;
+architecture behave of tar3 is
+begin
+	process(clk)
+	begin
+		if rising_edge(clk) then
+			if reset='1' then
+				Q<='0';
+			else
+				Q<=D;
+			end if;
+		end if;
+	end process;
+end behave;
