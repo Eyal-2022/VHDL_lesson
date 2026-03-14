@@ -99,4 +99,33 @@ end behave;
 -- שאלה 5
 --  כתבו תוכנית למונה שסופר מ-0 עד 5 כולל עם איתחול אסיכרוני
 -- מכיוון שהמונה הוא עד 5 כולל נשתמש ביציאה בוקטור של 3 ביטים
+library ieee;
+use ieee.std_logic_1164.all;
 
+entity tar5 is
+    port (
+        clk : in  std_logic; 
+        reset : in  std_logic; 
+        Q   : buffer std_logic_vector(2 downto 0));
+end tar5;
+
+architecture behave of tar5 is
+begin
+    process(clk)
+    begin
+        if rising_edge(clk) then
+            if reset='1' then
+					Q<="000";
+				else
+					case Q is
+						when "000" => Q<="001";
+						when "001" => Q<="010";
+						when "010" => Q<="011";
+						when "011" => Q<="100";
+						when "100" => Q<="101";
+						when others => Q<="000";
+					end case;
+				end if;
+			end if;
+	 end process;
+end behave;
