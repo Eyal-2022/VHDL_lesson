@@ -73,3 +73,26 @@ begin
 		end if;
 	end process;
 end behave;
+-- תרגיל 4
+-- כתבו תוכנית לאוגר 4 ביט
+-- pin planner Q-> AA2,AA2,W2,Y3.  D-> U13,V13,T13,T12. clk->M9
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity tar3 is
+    port (
+        clk : in  std_logic; 
+        D   : in  std_logic_vector(3 downto 0); 
+        Q   : out std_logic_vector(3 downto 0) -- שים לב: אין כאן נקודה-פסיק בסוף הרשימה
+    );
+end tar3;
+
+architecture behave of tar3 is
+begin
+    process(clk)
+    begin
+        if rising_edge(clk) then
+            Q <= D;
+        end if;
+    end process;
+end behave;			
