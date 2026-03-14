@@ -79,15 +79,15 @@ end behave;
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity tar3 is
+entity tar4 is
     port (
         clk : in  std_logic; 
         D   : in  std_logic_vector(3 downto 0); 
-        Q   : out std_logic_vector(3 downto 0) -- שים לב: אין כאן נקודה-פסיק בסוף הרשימה
+        Q   : out std_logic_vector(3 downto 0) 
     );
-end tar3;
+end tar4;
 
-architecture behave of tar3 is
+architecture behave of tar4 is
 begin
     process(clk)
     begin
@@ -96,3 +96,7 @@ begin
         end if;
     end process;
 end behave;			
+-- שאלה 5
+--  כתבו תוכנית למונה שסופר מ-0 עד 5 כולל עם איתחול אסיכרוני
+-- מכיוון שהמונה הוא עד 5 כולל נשתמש ביציאה בוקטור של 3 ביטים
+
