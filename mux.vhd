@@ -17,6 +17,8 @@ begin
 end behave;
 -- תרגיל 2
 -- כתבו תוכנית למפלג 1 ל-2(demux)
+--  מפלג 1 ל-2 מקבל כניסה אחת ולפי הבורר מעביר את הכניסה ליציאה הראשונה או השניה
+--  pin planner: D->U13, S->U7, Y0->AA2 , Y1->AA1
 library IEEE;
 use IEEE.std_logic_1164.all;
 entity tar2 is
