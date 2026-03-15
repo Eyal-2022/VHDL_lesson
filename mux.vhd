@@ -17,3 +17,18 @@ begin
 end behave;
 -- תרגיל 2
 -- כתבו תוכנית למפלג 1 ל-2(demux)
+library IEEE;
+use IEEE.std_logic_1164.all;
+entity tar2 is
+    port(
+        D  : in  std_logic;
+        S  : in  std_logic;
+        Y0 : out std_logic;
+        Y1 : out std_logic);
+end tar2;
+architecture behave of tar2 is
+begin
+
+    Y0 <= D and (not S);
+    Y1 <= D and S;
+end behave;
