@@ -1,5 +1,6 @@
 -- תרגיל 1
 -- (mux)כתבו תוכנית למרבב 2 ל-1 באמצעות שערים לוגים בלבד
+--  pin planner: A->U13 , B->V13 , sel-> U7 , Y-> AA2.
 library ieee;
 use ieee.std_logic_1164.all;
 
