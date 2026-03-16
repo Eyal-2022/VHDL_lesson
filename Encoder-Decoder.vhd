@@ -42,7 +42,7 @@ begin
 end logic;
 
 -- תרגיל 3
---  כתבו מקודד עדיפות 4 ל-2 לכניסה הנמוכה ביותר( Priority Encoder)
+--  כתבו מקודד עדיפות 4 ל-2 לכניסה הנמוכה ביותר(Priority Encoder)
 --כלומר לדוגמא אם כניסה די(0) שווה ל-1 וגם די(1) שווה ל-1 אז תינתן עדיפות לדי(0)
 -- מקודד רגיל יפעל באופן תקין כאשר יש כניסה אחת בלבד פעילה עם מידע, אך מה קורה כאשר כמה כניסות פעילות עם מידע
 -- לצורך כך יש את המקודד עדיפות שהוא הרחבה של מקודד רגיל, באמצעתו ניתן עדיפות לכניסה שנרצה 
@@ -74,3 +74,25 @@ begin
 		 end if;
 	end process;
 end behave;
+
+-- תרגיל 4
+-- כתבו תוכנית למקודד עדיפות 4 ל-2 לכניסה הנמוכה יותר ללא תהליך טורי(Priority Encoder)
+-- הפקודה וון מתבצעת מלמעלה למטה ולכן נוצרת עדיפות אוטומטית(when) 
+library IEEE;
+use IEEE.std_logic_1164.all;
+entity tar4 is
+    port(
+        D0 : in std_logic;
+        D1 : in std_logic;
+        D2 : in std_logic;
+        D3 : in std_logic;
+        Y  : out std_logic_vector(1 downto 0));
+end tar4;
+architecture behave of tar4 is
+begin
+Y <= "00" when D0 = '1' else
+     "01" when (D1 = '1') else
+     "10" when (D2 = '1') else
+     "11" when (D3 = '1') else
+     "00";
+end behave;	
